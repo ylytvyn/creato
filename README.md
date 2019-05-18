@@ -1,4 +1,4 @@
-# Starter for Gulp Project
+# Creato Project
 To initialize project: npm i
 
 To add package: npm install [package_name] --save / npm install [package_name] --save-dev
