@@ -154,6 +154,7 @@
 	&__img-wrap {
 		width: 40%;
 		margin-right: 8.5%;
+		perspective: 1000px;
 
 		@media (max-width: $width-md) {
 			margin-bottom: 20px;
@@ -165,6 +166,41 @@
 			width: 50%;
 			margin-bottom: 30px;
 		}
+
+		&:hover .introduce__img-inner{
+			transform: rotateY(180deg);
+		}
+	}
+
+	&__img-inner {
+		@include size(100%, 400px);
+		position: relative;
+		transition: transform .8s;
+		transform-style: preserve-3d;
+	}
+
+	&__img-front,
+	&__img-back {
+		@include size(100%);
+		position: absolute;
+		backface-visibility: hidden;
+		overflow: hidden;
+	}
+
+	&__img-back {
+		background: $black;
+		transform: rotateY(180deg);
+		padding: 20px;
+	}
+
+	&__img-title {
+		text-transform: uppercase;
+		font-size: 2rem;
+		margin-bottom: 15px;
+	}
+
+	&__img-txt {
+		font-size: 1.2rem;
 	}
 
 	&__img {

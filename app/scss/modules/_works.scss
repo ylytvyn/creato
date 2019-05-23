@@ -1,5 +1,5 @@
 .sizer {
-	width: 32.5%;
+	width: calc(33.33% - 7px);
 
 	@media (max-width: $width-sm) {
 		width: 50%;
@@ -8,12 +8,17 @@
 
 .blocks {
 	&__img {
-		width: 32.5%;
+		width: calc(33.33% - 7px);
 		margin-bottom: 7px;
+		cursor: pointer;
 
 		@media (max-width: $width-sm) {
 			width: 50%;
 			margin-bottom: 0;
+		}
+
+		img {
+			width: 100%;
 		}
 	}
 
@@ -22,9 +27,54 @@
 .filters {
 	display: flex;
 	justify-content: flex-end;
-	margin: 15px;
+	position: sticky;
+	position: -webkit-sticky;
+	top: 0;
+	padding: 15px 0;
+	z-index: 8;
+	background: $black;
 
-	li {
-		margin-left: 15px;
+	&__item {
+		margin-right: 35px;
+		cursor: pointer;
+		transition: all .3s;
+
+		&:hover,
+		&--active {
+			color: $red;
+		}
+	}
+}
+
+
+.img-hover {
+	@include size(400px, 300px);
+	overflow: hidden;
+	position: relative;
+	cursor: pointer;
+	margin-top: 150px;
+
+	img {
+		@include size(100%);
+		@include pos($l: 0);
+		transition: all .7s;
+	}
+
+	&:hover {
+		.img-hover__second {
+			opacity: 1;
+			transform: scale(1);
+			transform-origin: right top;
+		}
+
+		.img-hover__first {
+			transform: scale(0);
+			transform-origin: left bottom;
+		}
+	}
+
+	&__second {
+		opacity: 0;
+		transform: scale(0);
 	}
 }
